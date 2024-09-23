@@ -1,0 +1,41 @@
+<main>
+    <div class="grid w-screen h-screen flex justify-content-center align-items-center">
+        <div [formGroup]="loginForm" class="login-container surface-400 shadow-8 col-8 sm:col-6 md:col-6 lg:col-4 border-round-lg">
+            <div class="grid flex flex-column p-4">
+                <div class="text-center">
+                    <h1 class="text-0 font-italic">Ingrese</h1>
+                </div>
+                <div class="col-12 mb-2">
+                    <div class="flex flex-column gap-2">
+                        <label class="text-0 font-italic" for="username">Usuario</label>
+                        <input 
+                            pInputText 
+                            id="username" 
+                            formControlName="username"
+                            />
+                        <small id="username-help">
+                            Enter your username to reset your password.
+                        </small>
+                    </div>
+                </div>
+                <div class="col-12 mb-2">
+                    <div class="flex flex-column gap-2">
+                        <label class="text-0 font-italic" for="password">Contraseña</label>
+                        <input 
+                            pInputText 
+                            id="password"
+                            type="password" 
+                            formControlName="password"
+                            />
+                        <small id="username-help">
+                            Enter your passw.
+                        </small>
+                    </div>
+                </div>
+                <div class="flex justify-content-center align-items-center">
+                    <p-button [disabled]="!formValid" label="Confirmar" />
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
