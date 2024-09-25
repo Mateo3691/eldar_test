@@ -7,7 +7,11 @@
             <div class="card dashboards-container">
                 <app-table [dataItems]="itemList" 
                 [loadingTable]="isTableLoading" 
-                [filterFields]="filterFields" [isEditable]="tableEditable"></app-table>
+                [filterFields]="filterFields" 
+                [isEditable]="tableEditable"
+                (addItem)="onAddItem($event)"
+                (rowEditSave)="onSaveEditedItem($event)"
+                ></app-table>
             </div>
         </div>    
     </div>

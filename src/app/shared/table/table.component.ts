@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input, signal, WritableSignal } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output, signal, WritableSignal } from '@angular/core';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
@@ -9,7 +9,6 @@ import { Table, TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { ToastModule } from 'primeng/toast';
 import { Item } from '../../core/models/item.model';
-import { ApiService } from '../../core/services/api.service';
 import { LoadFormsService } from '../../core/services/load-forms.service';
 import { ToasterService } from '../../core/services/toaster.service';
 import { FieldErrorComponent } from '../field-error/field-error.component';
@@ -35,13 +34,15 @@ import { FieldErrorComponent } from '../field-error/field-error.component';
 })
 export class TableComponent {
   @Input() dataItems: WritableSignal<Item[]> = signal([]);
+  //@Input() dataItems: Item[] = [];
   @Input() loadingTable: WritableSignal<boolean> = signal(false);
   @Input() filterFields: Array<string> = [];
   @Input() isEditable: boolean = true;
+  @Output() rowEditSave: EventEmitter<Item> = new EventEmitter();
+  @Output() addItem: EventEmitter<Item> = new EventEmitter();
 
   toastService = inject(ToasterService);
   loadFormSrv = inject(LoadFormsService);
-  http = inject(ApiService);
 
   searchValue: string | undefined;
 
@@ -57,24 +58,9 @@ export class TableComponent {
     this.clonedProducts[String(item['id'])] = { ...item };
   }
 
-  onRowEditSave(item: Item, index: any): void {
-    this.http.updateItem(item).subscribe((res: any) => {
-      this.dataItems.update(items => {
-        const nuevosProductos = [...items];
-        nuevosProductos[index] = res;
-        return nuevosProductos;
-      });
-      this.toastService.showSuccessMssg('Se guardó correctamente.');
-    }, err => {
-      this.toastService.showErrorMssg('Error al actualizar.');
-      this.dataItems.update(items => {
-        const nuevosProductos = [...items];
-        nuevosProductos[index] = this.clonedProducts[String(item['id'])];
-        return nuevosProductos;
-      });
-    })
-
-    delete this.clonedProducts[String(item['id'])];
+  onRowEditSave(item: Item): void {
+    this.rowEditSave.emit(item);
+    this.clonedProducts[String(item['id'])];
   }
 
   onRowEditCancel(item: Item, index: any): void {
@@ -92,19 +78,14 @@ export class TableComponent {
       this.newItemForm = this.loadFormSrv.tableDataForm();
   }
 
-  addItem(){
+  onAddItem(){
     const req = this.newItemForm.value;
-    this.http.createItem(req).subscribe((res: any) => {
-      this.dataItems.update(items => [...items, res]);
-      this.toastService.showSuccessMssg('Se agregó correctamente.');
-      this.showModal = false;
-    }, err => {
-      this.toastService.showErrorMssg('Error al agregar.');
-    })
+    this.addItem.emit(req);
+    this.controlDialog(false);
   }
 
   clear(table: Table) {
     table.clear();
-    this.searchValue = ''
+    this.searchValue = '';
   }
 }

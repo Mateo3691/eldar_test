@@ -8,6 +8,8 @@ import { MessageService } from 'primeng/api';
 import { routes } from './app.routes';
 import { AuthEffects } from './auth/auth.effects';
 import { authReducer } from './auth/auth.reducer';
+import { ItemsEffects } from './items-data/items-data.effects';
+import { itemsReducer } from './items-data/items-data.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,8 +18,8 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(
       withFetch()
     ),
-    provideEffects([AuthEffects/*, UserItemsEffects*/]),
-    provideStore({ userAuth: authReducer }), 
+    provideEffects([AuthEffects, ItemsEffects]),
+    provideStore({ userAuth: authReducer, dataItems: itemsReducer }), 
     provideRouter(routes),
     // provideStoreDevtools({
     //   maxAge: 25, // Retains last 25 states
