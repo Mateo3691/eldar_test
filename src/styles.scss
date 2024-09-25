@@ -7,28 +7,52 @@
 @import "primeicons/primeicons.css";
 @import "primeflex/primeflex.scss";
 
+@import './theme/colors.scss';
+
 body {
     margin: 0;
     font-size: 16px;
+    background-color: $background-color;
 }
 
-.login-card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  p-inputtext {
+p-inputtext {
     width: 100%;
-  }
-  
-  h2 {
+}
+
+h2 {
     color: #333;
-  }
-  
-  .card {
+}
+
+.card {
     background: var(--surface-card);
     border-radius: 10px;
 }
-  
+
+.background-color {
+    background-color: #615371;
+}
+
+.backgroun-gradient {
+    background: rgb(205,208,207);
+    background: linear-gradient(328deg, rgba(205,208,207,1) 0%, rgba(128,126,166,1) 35%, rgba(36,36,66,1) 100%);
+}
+
+.dashboards-container {
+    max-width: 80rem !important;
+}
+
+ul li {
+    list-style: none;
+}
+
+
+@media (max-width: 600px) {
+    body {
+        font-size: 8px;
+    }
+}
+@media (max-width: 768px) {
+    body {
+        font-size: 10;
+    }
+}

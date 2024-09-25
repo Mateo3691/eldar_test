@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DashboardComponent } from './admin-dashboard.component';
+import { FieldErrorComponent } from './field-error.component';
 
-describe('DashboardComponent', () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+describe('FieldErrorComponent', () => {
+  let component: FieldErrorComponent;
+  let fixture: ComponentFixture<FieldErrorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DashboardComponent]
+      imports: [FieldErrorComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DashboardComponent);
+    fixture = TestBed.createComponent(FieldErrorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

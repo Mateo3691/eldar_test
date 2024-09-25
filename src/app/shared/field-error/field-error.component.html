@@ -1,0 +1,8 @@
+@if(showErrors){
+    <div class="flex flex-column text-red-400">
+        @for(err of errorList(); track err ) {
+            <small>{{err}}</small>
+        }
+    </div>
+
+}

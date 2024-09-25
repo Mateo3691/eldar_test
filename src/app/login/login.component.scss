@@ -1,6 +1,9 @@
-.login-container {
-    background: rgb(205,208,207);
-    background: linear-gradient(328deg, rgba(205,208,207,1) 0%, rgba(128,126,166,1) 35%, rgba(36,36,66,1) 100%);
+.login-card {
+    max-width: 30rem;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 ::ng-deep .p-inputtext {

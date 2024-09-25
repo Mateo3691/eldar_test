@@ -1,0 +1,22 @@
+// Estos estilos, por como funciona la encapsulación en angular, no funcionarian si se aggregan en el styles.scss
+/* Se podrían agregar en un archivo propio para botones o inputs, pero estos deberían ser importados en cada archivo
+    donde se los quiera usar, y terminaría por ser casi lo mismo. Dado la cantidad de arreglos de este tipo que amerita el proyecto
+    decidí agregarlos de esta forma, en proyectos mas grandes es mejor la opción de manejar los arreglos en archivos separados e 
+    importarlos
+*/
+@import '../../theme/colors.scss';
+
+::ng-deep .p-inputtext {
+    outline: none;
+    box-shadow: none;
+}
+
+::ng-deep .p-button {
+    outline: none;
+    box-shadow: none;
+}
+
+::ng-deep .pri-button {
+    background-color:$primary-color !important;
+    border: none;
+}
