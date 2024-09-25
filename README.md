@@ -25,6 +25,3 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-
-## Notes
-Este proyecto se podría haber completado, por ejemplo, haciendo que el dashboard sea un solo componente y en base al rol que se obtiene al loguarse permita editar o no los registros. Siendo que la vista de los componentes es muy similar, hubiese sido lo mas óptimo. Debido a que se quería mostrar protección de rutas, diferentesw vistas, u el uso de NgRx, decidí que al ser un test tenga esta estructura.
