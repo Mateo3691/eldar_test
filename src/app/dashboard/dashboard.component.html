@@ -1,25 +1,14 @@
 <main>
     <div class="dashboard-cotainer pt-5 min-h-screen">
         <div class="flex justify-content-center align-items-center">
-            <app-user-card></app-user-card>
+            <app-user-card [userName]="userName$ | async" [userRole]="role$ | async"></app-user-card>
         </div>
         <div class="p-4 lg:px-8 md:px-5 sm:px-4 xl:px-8 flex flex-column justify-content-center align-items-center">
             <div class="card dashboards-container">
-               <app-table [dataItems]="itemList" 
-               [loadingTable]="isTableLoading" 
-               [filterFields]="filterFields" [isEditable]="true"></app-table>
+                <app-table [dataItems]="itemList" 
+                [loadingTable]="isTableLoading" 
+                [filterFields]="filterFields" [isEditable]="tableEditable"></app-table>
             </div>
         </div>    
     </div>
 </main>
-
-
-
-
-
-
-
-
-
-
-

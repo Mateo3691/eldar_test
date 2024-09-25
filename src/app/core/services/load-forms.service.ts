@@ -12,7 +12,7 @@ export class LoadFormsService {
 
   loginForm(): FormGroup {
     return this.fb.group({
-      username: new FormControl ("", [Validators.required, Validators.minLength(3)]),
+      username: new FormControl ("", [Validators.required, Validators.minLength(5)]),
       password: new FormControl ("", [Validators.required, Validators.minLength(3)])
     }) 
   }

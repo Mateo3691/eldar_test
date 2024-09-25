@@ -28,8 +28,11 @@
                         <app-field-error [control]="loginForm.get('password')!"></app-field-error>
                     </div>
                 </div>
+                @if(showCredencialError()){
+                    <p-messages [(value)]="messages" [enableService]="false" />
+                }
                 <div class="flex justify-content-center align-items-center">
-                    <p-button [disabled]="!formValid" label="Confirmar" />
+                    <p-button [disabled]="!formValid" label="Confirmar" (onClick)="validateLoginForm()" />
                 </div>
             </div>
         </div>

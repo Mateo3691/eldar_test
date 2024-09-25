@@ -17,8 +17,7 @@ import { CardModule } from 'primeng/card';
   styleUrl: './user-card.component.scss'
 })
 export class UserCardComponent {
-
   //obtengo la informacion del usuario
-  @Input() userInfo: any;
-
+  @Input() userName: string | null = '';
+  @Input() userRole: string | null = '';
 }

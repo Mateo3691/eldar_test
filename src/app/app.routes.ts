@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AuthGuard } from './auth/auth.guard';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
-import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 export const routes: Routes = [
     {
@@ -10,13 +10,8 @@ export const routes: Routes = [
     },
     {
         path: 'dashboard',
-        component: UserDashboardComponent,
-        //canActivate: [tokenValidateGuard],
-    },
-    {
-        path: 'admin-dashboard',
-        component: AdminDashboardComponent,
-        //canActivate: [tokenValidateGuard],
+        component: DashboardComponent,
+        canActivate: [AuthGuard],
     },
     {
         path: '',

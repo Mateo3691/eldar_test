@@ -8,8 +8,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { Table, TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { ToastModule } from 'primeng/toast';
-import { Item } from '../../core/models/item';
-import { HttpService } from '../../core/services/http-service.service';
+import { Item } from '../../core/models/item.model';
+import { ApiService } from '../../core/services/api.service';
 import { LoadFormsService } from '../../core/services/load-forms.service';
 import { ToasterService } from '../../core/services/toaster.service';
 import { FieldErrorComponent } from '../field-error/field-error.component';
@@ -41,7 +41,7 @@ export class TableComponent {
 
   toastService = inject(ToasterService);
   loadFormSrv = inject(LoadFormsService);
-  http = inject(HttpService);
+  http = inject(ApiService);
 
   searchValue: string | undefined;
 

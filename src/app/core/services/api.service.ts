@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Item } from '../models/item';
+import { Item } from '../models/item.model';
 
 const baseService = 'https://jsonplaceholder.typicode.com/posts'
 
 @Injectable({
   providedIn: 'root'
 })
-export class HttpService {
+export class ApiService {
   protected readonly http = inject(HttpClient);
 
   getData() {
