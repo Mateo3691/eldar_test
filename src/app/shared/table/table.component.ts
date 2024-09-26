@@ -4,6 +4,7 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
 import { Table, TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -25,6 +26,7 @@ import { FieldErrorComponent } from '../field-error/field-error.component';
     DropdownModule, 
     ButtonModule, 
     InputTextModule,
+    InputNumberModule,
     DialogModule, 
     FormsModule,
     FieldErrorComponent

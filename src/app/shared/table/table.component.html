@@ -104,9 +104,14 @@
 <p-dialog header="Agregar item" [modal]="true" [(visible)]="showModal" [style]="{ width: '25rem' }">
     <span class="p-text-secondary block mb-5">Ingrese los datos a agregar.</span>
     <div [formGroup]="newItemForm">
-        <div class="flex flex-column gap-3 mb-3">
+        <div class="flex flex-column gap-3 mb-3 flex-auto">
             <label for="userId" class="font-semibold w-6rem">UserId</label>
-            <input pInputText id="userId" formControlName="userId" class="flex-auto" autocomplete="off" />
+            <p-inputNumber 
+                mode="decimal"
+                styleClass="inputnumber"
+                inputId="withoutgrouping" 
+                formControlName="userId"
+                [useGrouping]="false" /> 
             <app-field-error [control]="newItemForm.get('userId')!"></app-field-error>
         </div>
         <div class="flex flex-column gap-3 mb-3">
