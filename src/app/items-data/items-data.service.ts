@@ -8,16 +8,16 @@ const baseService = 'https://jsonplaceholder.typicode.com/posts'
 export class ItemsDataService {
     protected readonly http = inject(HttpClient);
 
-  getData() {
-    return this.http.get(`${baseService}`);
-  }
+    getData() {
+        return this.http.get(`${baseService}`);
+    }
 
-  updateItem(item: Item) {
-    return this.http.put(`${baseService}/${item.id}`,item);
-  }
+    updateItem(item: Item) {
+        return this.http.put(`${baseService}/${item.id}`,item);
+    }
 
-  createItem(item: Item) {
-    const {title, body, userId} = item;
-    return this.http.post(`${baseService}`, {title, body, userId});
-  }
+    createItem(item: Item) {
+        const {title, body, userId} = item;
+        return this.http.post(`${baseService}`, {title, body, userId});
+    }
 }

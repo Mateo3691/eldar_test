@@ -1,5 +1,8 @@
 <main>
     <div class="dashboard-cotainer pt-5 min-h-screen">
+        <div class="flex justify-content-center mb-3">
+            <p-button styleClass="pri-button" icon="pi pi-sign-out" (onClick)="logOutUser()" />
+        </div>
         <div class="flex justify-content-center align-items-center">
             <app-user-card [userName]="userName$ | async" [userRole]="role$ | async"></app-user-card>
         </div>

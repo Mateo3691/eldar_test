@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { ButtonModule } from 'primeng/button';
 import { Observable } from 'rxjs';
+import { logout } from '../auth/auth.actions';
 import { selectUserName, selectUserRole } from '../auth/auth.selectors';
 import { Item } from '../core/models/item.model';
 import { ToasterService } from '../core/services/toaster.service';
@@ -16,6 +18,7 @@ import { UserCardComponent } from '../shared/user-card/user-card.component';
   imports: [
     UserCardComponent,
     TableComponent,
+    ButtonModule,
     CommonModule
   ],
   templateUrl: './dashboard.component.html',
@@ -60,6 +63,10 @@ export class DashboardComponent implements OnInit {
         this.toastService.showErrorMssg('Error al cargar.');
       }}
     )
+  }
+
+  logOutUser(): void {
+    this.store.dispatch(logout());
   }
 
   loadItems(): void {
